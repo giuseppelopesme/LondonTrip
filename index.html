@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>London — 30 Jul to 3 Aug</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F1E9; --card:#FBF9F3; --teal:#123B37; --teal-2:#1C524C;
+    --brass:#A9772A; --brass-lite:#C79A46; --bus:#AE3527; --ink:#1A2422;
+    --muted:#7C8279; --line:#DBD5C6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:60px}
+  .wrap{max-width:820px;margin:0 auto;padding:0 20px}
+  a{color:var(--brass);text-decoration:none}
+
+  /* ---------- Nav ---------- */
+  .nav{position:sticky;top:0;z-index:30;background:rgba(244,241,233,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav-in{max-width:820px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:var(--teal);letter-spacing:-.01em;white-space:nowrap}
+  .brand span{color:var(--brass)}
+  .nav-links{display:flex;gap:6px}
+  .nav-links a{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.04em;color:var(--teal-2);padding:6px 12px;border-radius:20px;border:1px solid transparent}
+  .nav-links a.on{background:var(--teal);color:#fff}
+
+  /* ---------- Views ---------- */
+  .view{display:block;scroll-margin-top:72px}
+  .view + .view{margin-top:20px;border-top:1px solid var(--line);padding-top:22px}
+
+  /* ---------- Masthead ---------- */
+  header.mast{padding:40px 0 22px}
+  .eyebrow{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);margin-bottom:14px}
+  h1{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(36px,9vw,62px);line-height:.96;letter-spacing:-.015em;color:var(--teal)}
+  h1 em{font-style:italic;font-weight:500;color:var(--brass)}
+  .sub{margin-top:14px;font-size:15px;color:var(--teal-2);max-width:56ch}
+
+  .strip{margin-top:24px;border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden}
+  .strip-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+  .cell{background:var(--card);padding:15px 16px}
+  .cell .k{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+  .cell .v{font-size:15px;margin-top:5px;color:var(--ink);font-weight:500}
+  .cell .v small{display:block;color:var(--teal-2);font-weight:400;font-size:12.5px;margin-top:2px}
+  .cell.full{grid-column:1 / -1}
+
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 2px}
+  .chip{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.04em;padding:4px 9px;border-radius:20px;border:1px solid var(--line);color:var(--teal-2);display:inline-flex;align-items:center;gap:6px;background:var(--card)}
+  .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+  .d-fish{background:var(--brass)} .d-bus{background:var(--bus)} .d-pub{background:var(--teal)} .d-pick{background:transparent;border:1.5px dashed var(--brass)}
+
+  .sec-label{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin:30px 0 12px}
+
+  /* ---------- Index day cards ---------- */
+  .idx{display:flex;flex-direction:column;gap:14px}
+  .idx-card{display:block;border:1px solid var(--line);border-radius:16px;background:var(--card);padding:20px 22px;transition:transform .15s ease,box-shadow .15s ease;color:inherit}
+  .idx-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(18,59,55,.08)}
+  .idx-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .idx-no{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.16em;color:var(--brass);text-transform:uppercase}
+  .idx-date{font-family:"Space Mono",monospace;font-size:12px;color:var(--muted)}
+  .idx-title{font-family:"Fraunces",serif;font-weight:600;font-size:22px;color:var(--teal);margin:8px 0 6px;letter-spacing:-.01em}
+  .idx-line{font-size:14px;color:var(--teal-2)}
+  .idx-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;flex-wrap:wrap}
+  .idx-tags{display:flex;gap:6px;flex-wrap:wrap}
+  .go{font-family:"Space Mono",monospace;font-size:12px;color:var(--brass);white-space:nowrap}
+  .cap{font-family:"Space Mono",monospace;font-size:11.5px;color:var(--teal);background:rgba(18,59,55,.06);border:1px solid var(--line);border-radius:14px;padding:5px 11px;white-space:nowrap}
+  .cap b{color:var(--brass);font-weight:700}
+  .cap i{font-style:normal;color:var(--muted);font-size:9.5px;display:block;margin-top:1px}
+
+  .tag{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.03em;padding:3px 8px;border-radius:5px;border:1px solid var(--line);color:var(--muted)}
+  .tag.cost{color:var(--teal-2)} .tag.free{color:var(--teal-2);border-color:var(--teal-2)}
+  .tag.fish{color:#fff;background:var(--brass);border-color:var(--brass)}
+  .tag.bus{color:var(--bus);border-color:var(--bus)} .tag.pub{color:var(--teal);border-color:var(--teal)}
+
+  /* ---------- Day detail ---------- */
+  .back{display:inline-flex;align-items:center;gap:6px;font-family:"Space Mono",monospace;font-size:12px;color:var(--teal-2);margin:26px 0 6px}
+  .day-hd{padding:6px 0 4px}
+  .day-hd .idx-no{font-size:12px}
+  .day-hd h2{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(28px,7vw,44px);line-height:1;color:var(--teal);letter-spacing:-.015em;margin:8px 0 10px}
+  .day-hd .capbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+  .getin{margin:16px 0 8px;border:1px solid var(--line);border-left:3px solid var(--brass);border-radius:10px;background:var(--card);padding:13px 15px}
+  .getin .k{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
+  .getin p{font-size:14px;color:var(--teal-2);margin-top:5px}
+
+  .track{margin-top:10px}
+  .item{position:relative;padding:14px 0 6px 30px}
+  .item::before{content:"";position:absolute;left:5px;top:0;bottom:0;width:2px;background:var(--line)}
+  .item:first-child::before{top:20px}
+  .item::after{content:"";position:absolute;left:0;top:20px;width:12px;height:12px;border-radius:50%;background:var(--card);border:2px solid var(--teal)}
+  .item.n-fish::after{border-color:var(--brass);background:var(--brass)}
+  .item.n-bus::after{border-color:var(--bus)}
+  .item.n-pub::after{background:var(--teal)}
+  .item.n-drink::after{border-color:var(--brass);background:var(--card);border-style:dashed}
+  .time{font-family:"Space Mono",monospace;font-size:12.5px;color:var(--brass);letter-spacing:.03em}
+  .h{font-size:16px;font-weight:600;color:var(--ink);margin-top:3px;line-height:1.35}
+  .d{font-size:14px;color:var(--teal-2);margin-top:4px}
+  .meta{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
+
+  /* walk connector */
+  .walk{position:relative;padding:2px 0 2px 30px;margin:2px 0}
+  .walk::before{content:"";position:absolute;left:5px;top:0;bottom:0;width:2px;background:repeating-linear-gradient(var(--line) 0 4px,transparent 4px 8px)}
+  .walk p{font-size:12.5px;color:var(--muted);font-style:italic;padding:6px 0}
+  .walk p b{font-style:normal;color:var(--teal-2);font-weight:600}
+
+  /* venue info block */
+  .info{margin-top:10px;border:1px solid var(--line);border-radius:11px;background:#fff;overflow:hidden}
+  .info-row{display:flex;gap:10px;padding:10px 13px;border-bottom:1px solid var(--line);font-size:13px}
+  .info-row:last-child{border-bottom:none}
+  .info-row .ik{font-family:"Space Mono",monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);flex:0 0 74px;padding-top:2px}
+  .info-row .iv{color:var(--teal-2);flex:1}
+  .links{display:flex;flex-wrap:wrap;gap:7px;padding:11px 13px}
+  .lb{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.02em;padding:6px 11px;border-radius:8px;border:1px solid var(--line);display:inline-flex;align-items:center;gap:5px;background:var(--card)}
+  .lb.book{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .lb.map{color:var(--teal-2)} .lb.menu{color:var(--brass);border-color:var(--brass-lite)} .lb.site{color:var(--teal-2)}
+  .lb::before{font-size:12px}
+  .lb.map::before{content:"◎"} .lb.menu::before{content:"☰"} .lb.book::before{content:"◆"} .lb.site::before{content:"↗"}
+
+  .opt{margin-top:10px;border:1px dashed var(--brass);border-radius:12px;background:rgba(169,119,42,.05);padding:4px 14px 12px}
+  .opt .flag{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);padding:9px 0 2px}
+
+  .note{margin:14px 0 0;border-radius:12px;background:rgba(169,119,42,.07);border:1px dashed var(--brass);padding:14px 16px}
+  .note b{font-family:"Fraunces",serif;font-weight:600;color:var(--brass);font-size:15px}
+  .note p{font-size:13.5px;color:var(--teal-2);margin-top:5px}
+
+  .pager{display:flex;justify-content:space-between;gap:10px;margin:30px 0 8px}
+  .pager a{flex:1;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:13px 15px;font-family:"Space Mono",monospace;font-size:12px;color:var(--teal-2)}
+  .pager a.next{text-align:right}
+  .pager a small{display:block;color:var(--muted);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
+  .pager a.disabled{opacity:.35;pointer-events:none}
+
+  /* ---------- Tickets page ---------- */
+  .tk-hero{padding:36px 0 8px}
+  .tk-group{margin-top:22px}
+  .tk-gl{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  .tk-gl::after{content:"";flex:1;height:1px;background:var(--line)}
+  .tk{border:1px solid var(--line);border-radius:13px;background:var(--card);padding:15px 17px;margin-bottom:12px}
+  .tk-top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+  .tk-name{font-family:"Fraunces",serif;font-weight:600;font-size:18px;color:var(--teal)}
+  .tk-price{font-family:"Space Mono",monospace;font-size:13px;color:var(--brass);white-space:nowrap;font-weight:700}
+  .tk-meta{font-size:13px;color:var(--teal-2);margin-top:6px}
+  .tk-meta b{color:var(--ink)}
+  .tk-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
+
+  footer{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  footer b{color:var(--teal-2);font-weight:600}
+
+  @media (max-width:540px){
+    .strip-row{grid-template-columns:1fr}
+    .info-row{flex-direction:column;gap:3px}
+    .info-row .ik{flex-basis:auto}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a href="#plan" data-view="plan" class="brand">London<span>·</span>Thames</a>
+    <div class="nav-links">
+      <a href="#plan" data-view="plan" data-nav="#plan">Plan</a>
+      <a href="#tickets" data-view="tickets" data-nav="#tickets">Tickets</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- ============ PLAN / INDEX ============ -->
+<section id="plan" class="view">
+  <header class="mast">
+    <div class="eyebrow">Itinerary · 5 days · Giuseppe &amp; Brunella</div>
+    <h1>London,<br><em>along the Thames</em></h1>
+    <p class="sub">Scroll through all five days below — each has its wander-route, directions, ticket links, menus and a pre-dinner drink spot. Tap a card to jump straight to that day. Museums swapped for a red-bus grand tour, a morning at Farlows, Oxford by rail, and the river walked to its oldest pub.</p>
+
+    <div class="strip">
+      <div class="strip-row">
+        <div class="cell"><div class="k">Arrive · Thu 30 Jul</div><div class="v">London City — 08:35<small>Bag-drop ~10:30; check-in 15:00</small></div></div>
+        <div class="cell"><div class="k">Depart · Mon 3 Aug</div><div class="v">London City — 19:25<small>Leave hotel ~16:15</small></div></div>
+      </div>
+      <div class="strip-row">
+        <div class="cell full"><div class="k">Base</div><div class="v">Radisson Blu, 68–86 Cromwell Rd, South Kensington SW7<small>Nearest tube: Gloucester Road (District · Circle · Piccadilly), ~5 min walk</small></div></div>
+      </div>
+      <div class="strip-row">
+        <div class="cell full"><div class="k">Food budget · per person</div><div class="v">Under £200 each — plan runs ~£197 lean<small>Daily caps sit on each day. Tickets &amp; transport are separate — see the Tickets tab.</small></div></div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <span class="chip"><span class="dot d-fish"></span>fly fishing</span>
+      <span class="chip"><span class="dot d-bus"></span>bus / transport</span>
+      <span class="chip"><span class="dot d-pub"></span>pub</span>
+      <span class="chip"><span class="dot d-pick"></span>your call</span>
+    </div>
+  </header>
+
+  <div class="sec-label">The five days</div>
+  <div class="idx">
+
+    <a class="idx-card" href="#day1" data-view="day1">
+      <div class="idx-top"><span class="idx-no">Day 01 — Arrival</span><span class="idx-date">Thu 30 Jul</span></div>
+      <div class="idx-title">Chelsea &amp; South Ken</div>
+      <div class="idx-line">Land, drop bags, and ease into the hotel's own neighbourhood — King's Road, Battersea, and a proper Chelsea pub for dinner.</div>
+      <div class="idx-foot"><span class="idx-tags"><span class="tag pub">pub dinner</span><span class="tag free">low-key</span></span><span class="cap">Food · <b>£45</b> pp</span></div>
+      <div class="idx-foot"><span class="go">Jump to this day ↓</span></div>
+    </a>
+
+    <a class="idx-card" href="#day2" data-view="day2">
+      <div class="idx-top"><span class="idx-no">Day 02 — The Grand Line</span><span class="idx-date">Fri 31 Jul</span></div>
+      <div class="idx-title">Red-bus tour → Tower → the pub</div>
+      <div class="idx-line">The 11 and 15 buses do the sightseeing; Borough Market for lunch; then the river walked east to the Prospect of Whitby.</div>
+      <div class="idx-foot"><span class="idx-tags"><span class="tag bus">buses 11 &amp; 15</span><span class="tag pub">riverside pub</span></span><span class="cap">Food · <b>£60</b> pp<i>incl. Prospect £40</i></span></div>
+      <div class="idx-foot"><span class="go">Jump to this day ↓</span></div>
+    </a>
+
+    <a class="idx-card" href="#day3" data-view="day3">
+      <div class="idx-top"><span class="idx-no">Day 03 — Rods &amp; West End</span><span class="idx-date">Sat 1 Aug</span></div>
+      <div class="idx-title">Farlows, Covent Garden &amp; Soho</div>
+      <div class="idx-line">A morning at the London fly-fishing institution, then the West End's markets, Soho, and an aperitivo before dinner.</div>
+      <div class="idx-foot"><span class="idx-tags"><span class="tag fish">Farlows</span><span class="tag pub">Soho drinks</span></span><span class="cap">Food · <b>£46</b> pp</span></div>
+      <div class="idx-foot"><span class="go">Jump to this day ↓</span></div>
+    </a>
+
+    <a class="idx-card" href="#day4" data-view="day4">
+      <div class="idx-top"><span class="idx-no">Day 04 — Day Trip</span><span class="idx-date">Sun 2 Aug</span></div>
+      <div class="idx-title">Oxford by rail</div>
+      <div class="idx-line">Colleges, the Covered Market, a rooftop tower view, Christ Church, and punting on the Cherwell — an hour from Paddington.</div>
+      <div class="idx-foot"><span class="idx-tags"><span class="tag bus">GWR direct</span><span class="tag cost">punting</span></span><span class="cap">Food · <b>£44</b> pp<i>+ train, separate</i></span></div>
+      <div class="idx-foot"><span class="go">Jump to this day ↓</span></div>
+    </a>
+
+    <a class="idx-card" href="#day5" data-view="day5">
+      <div class="idx-top"><span class="idx-no">Day 05 — Departure</span><span class="idx-date">Mon 3 Aug</span></div>
+      <div class="idx-title">Parks, Knightsbridge &amp; home</div>
+      <div class="idx-line">A calm last morning in Kensington Gardens, a browse at Harrods, a hidden-mews pint, then the airport.</div>
+      <div class="idx-foot"><span class="idx-tags"><span class="tag free">parks</span><span class="tag pub">last pint</span></span><span class="cap">Food · <b>£22</b> pp<i>no dinner</i></span></div>
+      <div class="idx-foot"><span class="go">Jump to this day ↓</span></div>
+    </a>
+
+  </div>
+
+  <footer>
+    <p><b>Staying under £200 pp:</b> breakfast grab-and-go (~£6), drinks capped at 1–2 (beer/cider, alternate with water or soda), and a light Monday lunch. Hold those and you land ~£197 pp.</p>
+    <p style="margin-top:8px"><b>Everything bookable</b> — trains, Tower, Christ Church, punting, a possible show — lives on the <a href="#tickets" data-view="tickets">Tickets</a> page with prices and official links.</p>
+  </footer>
+</section>
+
+<!-- ============ DAY 1 ============ -->
+<section id="day1" class="view">
+  <a href="#plan" data-view="plan" class="back">‹ All days</a>
+  <div class="day-hd">
+    <span class="idx-no">Day 01 — Arrival · Thu 30 Jul</span>
+    <h2>Chelsea &amp; South Ken</h2>
+    <div class="capbar"><span class="cap">Food · <b>£45</b> pp</span><span class="tag pub">pub dinner</span></div>
+  </div>
+
+  <div class="getin"><div class="k">The shape of the day</div><p>Land, get to the hotel, drop bags, and spend a relaxed half-day in the neighbourhood you're sleeping in — no tube marathons after a flight. A loop through Chelsea and Battersea, then a drink and dinner within walking distance of bed.</p></div>
+
+  <div class="track">
+    <div class="item n-bus">
+      <div class="time">08:35 → ~10:30</div>
+      <div class="h">London City Airport → hotel</div>
+      <div class="d">LCY is small and quick. Easiest with luggage is a cab; the rail route is cheap and only one change.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Taxi / Uber</span><span class="iv">~45–65 min · ~£45–60 — door to door with bags</span></div>
+        <div class="info-row"><span class="ik">By rail</span><span class="iv">DLR to Tower Gateway → walk to Tower Hill → District line direct to Gloucester Road (~60 min, ~£6)</span></div>
+        <div class="links"><a class="lb map" href="https://www.google.com/maps/dir/London+City+Airport/Radisson+Blu+Edwardian+Vanderbilt+Cromwell+Road" target="_blank" rel="noopener">Route to hotel</a></div>
+      </div>
+    </div>
+
+    <div class="walk"><p><b>Bag-drop.</b> Room won't be ready until 15:00 — leave cases at reception and head straight out.</p></div>
+
+    <div class="item">
+      <div class="time">11:30</div>
+      <div class="h">Lunch in South Kensington</div>
+      <div class="d">A casual bite near the hotel while your room's not ready. Plenty of cafés along Gloucester Road and Bute Street.</div>
+      <div class="meta"><span class="tag cost">£</span></div>
+    </div>
+
+    <div class="walk"><p><b>To Chelsea:</b> District/Circle line Gloucester Road → Sloane Square (2 stops, 5 min), or a 15-min walk east.</p></div>
+
+    <div class="item">
+      <div class="time">12:30</div>
+      <div class="h">Chelsea on foot — Sloane Square &amp; King's Road</div>
+      <div class="d">King's Road runs west from Sloane Square; Duke of York Square is three minutes along on the left. Saatchi Gallery here has free contemporary shows if you fancy a look.</div>
+      <div class="meta"><span class="tag free">free</span></div>
+    </div>
+
+    <div class="walk"><p><b>To Battersea:</b> down to the river and across Chelsea Bridge (~15 min) into Battersea Park; the Power Station is a further 10 min along the embankment.</p></div>
+
+    <div class="item">
+      <div class="time">14:30</div>
+      <div class="h">Battersea Power Station &amp; Park</div>
+      <div class="d">The restored power station — shops, riverside bars, and a free history museum — then a loop through Battersea Park.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Where</span><span class="iv">Circus Rd West, SW11 8DD</span></div>
+        <div class="info-row"><span class="ik">Cost</span><span class="iv">Free to wander · the Lift 109 chimney view is ~£17 if you fancy it</span></div>
+        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Battersea+Power+Station" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://batterseapowerstation.co.uk" target="_blank" rel="noopener">Site</a></div>
+      </div>
+    </div>
+
+    <div class="walk"><p><b>Back to base:</b> bus 137 or 452 toward Sloane Square, then District line home (~25 min). Freshen up and check in.</p></div>
+
+    <div class="opt">
+      <div class="flag">◇ Spare-time drink · optional</div>
+      <div class="item n-drink" style="padding-top:6px">
+        <div class="time">18:15</div>
+        <div class="h">The Queen's Arms</div>
+        <div class="d">A cheerful little back-street pub tucked in the mews behind the Royal Albert Hall — a good first London pint before dinner.</div>
+        <div class="info">
+          <div class="info-row"><span class="ik">Where</span><span class="iv">30 Queen's Gate Mews, SW7 5QL · ~10 min from hotel</span></div>
+          <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=The+Queens+Arms+Queens+Gate+Mews+London" target="_blank" rel="noopener">Map &amp; hours</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item n-pub">
+      <div class="time">19:30</div>
+      <div class="h">Dinner — The Hunter's Moon</div>
+      <div class="d">The standout pub right by the Anglesea, up on Fulham Road — a celebrated gastropub with one of the best Sunday roasts in London and inventive British plates. A touch pricier than the Anglesea, so keep the drinks modest to hold the cap.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Where</span><span class="iv">86 Fulham Rd, SW3 6HR · ~2 min from the Anglesea, ~12 min from the hotel</span></div>
+        <div class="info-row"><span class="ik">Budget</span><span class="iv">££ · mains ~£20–28 — the upper end of today's cap</span></div>
+        <div class="info-row"><span class="ik">Value next door</span><span class="iv">Duke of Clarence (148 Old Brompton Rd) · The Drayton Arms (153 Old Brompton Rd) — both ~5 min, cheaper, great roasts</span></div>
+        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=The+Hunters+Moon+Fulham+Road+London" target="_blank" rel="noopener">Map</a><a class="lb menu" href="https://www.google.com/search?q=The+Hunters+Moon+Fulham+Road+menu" target="_blank" rel="noopener">Menu</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a class="disabled">&nbsp;</a>
+    <a class="next" href="#day2" data-view="day2"><small>Next</small>Day 02 — The Grand Line ›</a>
+  </div>
+</section>
+
+<!-- ============ DAY 2 ============ -->
+<section id="day2" class="view">
+  <a href="#plan" data-view="plan" class="back">‹ All days</a>
+  <div class="day-hd">
+    <span class="idx-no">Day 02 — The Grand Line · Fri 31 Jul</span>
+    <h2>Red-bus tour → Tower → the pub</h2>
+    <div class="capbar"><span class="cap">Food · <b>£60</b> pp<i>incl. Prospect £40</i></span><span class="tag bus">buses 11 &amp; 15</span></div>
+  </div>
+
+  <div class="getin"><div class="k">The shape of the day</div><p>Two public double-deckers do all the sightseeing for £1.75, following the river east: the 11 through Westminster, the 15 into the City. Lunch at Borough Market, the Tower in the afternoon, then a slow riverside walk to London's oldest riverside pub.</p></div>
+
+  <div class="track">
+    <div class="item"><div class="time">09:00</div><div class="h">Coffee near Sloane Square</div><div class="d">Fuel up, then walk to the bus stop on the King's Road side.</div><div class="meta"><span class="tag cost">£</span></div></div>
+
+    <div class="walk"><p><b>Getting there:</b> District line Gloucester Road → Sloane Square (5 min). Tap in with the same contactless card you'll use all day.</p></div>
+
+    <div class="item n-bus">
+      <div class="time">09:30</div>
+      <div class="h">Bus 11 — the DIY grand tour</div>
+      <div class="d">Top deck, front seat, direction Waterloo. In one ride: Pimlico, Victoria, Westminster Cathedral, and Parliament Square — Westminster Abbey, Big Ben and the Houses of Parliament. Hop off at Parliament Square, just before the bus turns over Westminster Bridge.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Board</span><span class="iv">Sloane Square, King's Road side · direction Victoria / Waterloo · ~5 min from the hotel via the District line</span></div>
+        <div class="info-row"><span class="ik">Fare</span><span class="iv">£1.75 · contactless · Hopper gives free changes within 1 hr</span></div>
+        <div class="links"><a class="lb site" href="https://tfl.gov.uk/modes/buses/" target="_blank" rel="noopener">TfL buses</a></div>
+      </div>
+    </div>
+
+    <div class="walk"><p><b>Up Whitehall to Trafalgar:</b> from Parliament Square walk up Whitehall past the Cenotaph, Downing Street and Horse Guards to Trafalgar Square (~12 min). <b>Note:</b> the 11 was shortened to Waterloo in 2023, so it no longer runs into the City — the 15 does that job this afternoon.</p></div>
+
+    <div class="item"><div class="time">11:00</div><div class="h">Trafalgar Square</div><div class="d">Nelson's Column, the fountains and the National Gallery's portico. A good place to pause before lunch.</div><div class="meta"><span class="tag free">free</span></div></div>
+
+    <div class="walk"><p><b>Riverside walk to lunch:</b> cross the pedestrian Golden Jubilee Bridge to the South Bank and stroll east past the Southbank Centre, Tate Modern and Shakespeare's Globe to Borough Market (~30 min, free and scenic). Short on energy? Charing Cross → London Bridge by tube instead.</p></div>
+
+    <div class="item">
+      <div class="time">12:15</div>
+      <div class="h">Lunch — Borough Market</div>
+      <div class="d">London's best food market: graze rather than sit. Salt-beef, cheese toasties, oysters, paella — cheap and excellent.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Where</span><span class="iv">8 Southwark St, SE1 1TL · tube London Bridge</span></div>
+        <div class="info-row"><span class="ik">Budget</span><span class="iv">£ · ~£10–14 a head grazing</span></div>
+        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Borough+Market+London" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://boroughmarket.org.uk" target="_blank" rel="noopener">Traders &amp; hours</a></div>
+      </div>
+    </div>
+
+    <div class="walk"><p><b>Cross to the City:</b> from Borough, walk over the Millennium Bridge to St Paul's (~12 min) — the Wren dome dead ahead the whole way.</p></div>
+
+    <div class="item n-bus">
+      <div class="time">13:45</div>
+      <div class="h">Bus 15 — the afternoon City ride</div>
+      <div class="d">Top deck again, direction Blackwall. The classic City cruise: past St Paul's, down Cannon Street, past the Monument to the Great Fire, and out to Tower Hill. Hop off right at the Tower.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Board</span><span class="iv">St Paul's (St Paul's Churchyard / Cannon St), direction Blackwall — or ride the full run from Trafalgar: Strand, Fleet St, St Paul's, Tower</span></div>
+        <div class="info-row"><span class="ik">Off at</span><span class="iv">Tower Hill (~10 min from St Paul's)</span></div>
+        <div class="info-row"><span class="ik">Fare</span><span class="iv">£1.75 · contactless · New Routemaster double-decker (the vintage Routemaster on the 15 retired in 2021)</span></div>
+        <div class="links"><a class="lb site" href="https://tfl.gov.uk/bus/route/15/" target="_blank" rel="noopener">Route 15 · TfL</a></div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="time">14:00</div>
+      <div class="h">Tower of London &amp; Tower Bridge</div>
+      <div class="d">Walk the walls and cross Tower Bridge either way. Going inside for the Crown Jewels is your call — see the note below.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Inside</span><span class="iv">£37 pp · opens 09:00 Fri · allow 2–3 hrs · book a timed slot online</span></div>
+        <div class="info-row"><span class="ik">Outside</span><span class="iv">Free — walls, wharf and Tower Bridge exterior</span></div>
+        <div class="links"><a class="lb book" href="https://www.hrp.org.uk/tower-of-london/" target="_blank" rel="noopener">Book Tower</a><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Tower+of+London" target="_blank" rel="noopener">Map</a></div>
+      </div>
+    </div>
+
+    <div class="note"><b>Your call — enter the Tower?</b><p>Inside is ~£37 pp and 2–3 hrs; skip it and you gain an unhurried river walk and an earlier pint. Do it, and dinner simply shifts later — the Prospect serves till ~21:00 and is open to 23:00.</p></div>
+
+    <div class="walk"><p><b>The river walk:</b> follow the Thames Path east through Wapping to the pub (~30 min / 1.5 mi) — cobbled lanes, old wharves, and quiet river views.</p></div>
+
+    <div class="opt">
+      <div class="flag">◇ Spare-time drink · right on the route</div>
+      <div class="item n-drink" style="padding-top:6px">
+        <div class="time">17:45</div>
+        <div class="h">The Town of Ramsgate</div>
+        <div class="d">A narrow, ancient riverside pub you pass on the walk — a first pint on its tiny Thames-side deck before dinner further along.</div>
+        <div class="info">
+          <div class="info-row"><span class="ik">Where</span><span class="iv">62 Wapping High St, E1W 2PN · on the Tower→Prospect walk</span></div>
+          <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Town+of+Ramsgate+Wapping" target="_blank" rel="noopener">Map &amp; hours</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item n-pub">
+      <div class="time">18:30</div>
+      <div class="h">Dinner — The Prospect of Whitby</div>
+      <div class="d">London's oldest riverside pub (c.1520). Dinner and a couple of beers on the terrace over the water — the evening the whole day points toward.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Where</span><span class="iv">57 Wapping Wall, E1W 3SH</span></div>
+        <div class="info-row"><span class="ik">Getting home</span><span class="iv">Overground from Wapping (4 min walk) → change for South Ken; or a cab</span></div>
+        <div class="info-row"><span class="ik">Budget</span><span class="iv">££ · your £40 pp covers a main + a couple of drinks</span></div>
+        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=The+Prospect+of+Whitby+Wapping+Wall" target="_blank" rel="noopener">Map</a><a class="lb menu" href="https://www.google.com/search?q=Prospect+of+Whitby+Wapping+menu" target="_blank" rel="noopener">Menu</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="#day1" data-view="day1"><small>Previous</small>‹ Day 01 — Arrival</a>
+    <a class="next" href="#day3" data-view="day3"><small>Next</small>Day 03 — Rods &amp; West End ›</a>
+  </div>
+</section>
+
+<!-- ============ DAY 3 ============ -->
+<section id="day3" class="view">
+  <a href="#plan" data-view="plan" class="back">‹ All days</a>
+  <div class="day-hd">
+    <span class="idx-no">Day 03 — Rods &amp; West End · Sat 1 Aug</span>
+    <h2>Farlows, Covent Garden &amp; Soho</h2>
+    <div class="capbar"><span class="cap">Food · <b>£46</b> pp</span><span class="tag fish">Farlows</span></div>
+  </div>
+
+  <div class="getin"><div class="k">The shape of the day</div><p>Start at the London fly-fishing institution the moment it opens, then let the West End unspool on foot: Fortnum's, Covent Garden, Soho and Chinatown, an aperitivo, and dinner. All within a tight, walkable square.</p></div>
+
+  <div class="track">
+    <div class="getin" style="border-left-color:var(--teal)"><div class="k">Getting there</div><p>Piccadilly line: Gloucester Road → Piccadilly Circus (direct, ~10 min), then a 4-min walk down to Pall Mall.</p></div>
+
+    <div class="item n-fish">
+      <div class="time">10:00</div>
+      <div class="h">Farlows — 9 Pall Mall</div>
+      <div class="d">Est. 1840: fly rods, reels, waders, country clothing, and Chris Clemes' hand-built cane rods in-store. Placed on Saturday because it's closed Sundays (Sat hours 10–18).</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Where</span><span class="iv">9 Pall Mall, SW1Y 5NP · tube Piccadilly Circus</span></div>
+        <div class="info-row"><span class="ik">Note</span><span class="iv">No ticket — just go in. Ask about the cane-rod room upstairs.</span></div>
+        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Farlows+9+Pall+Mall+London" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://www.farlows.co.uk" target="_blank" rel="noopener">farlows.co.uk</a></div>
+      </div>
+    </div>
+
+    <div class="walk"><p><b>Two minutes away:</b> up to Piccadilly for a browse of Fortnum &amp; Mason's food hall (181 Piccadilly) — a good spot for an edible souvenir without the Harrods crowds.</p></div>
+
+    <div class="walk"><p><b>To Covent Garden:</b> through Piccadilly Circus and Leicester Square to the market (~12 min).</p></div>
+
+    <div class="item">
+      <div class="time">12:30</div>
+      <div class="h">Covent Garden &amp; lunch</div>
+      <div class="d">Apple Market, buskers under the piazza, Seven Dials and colourful Neal's Yard. For lunch, Seven Dials Market (street-food hall) or Flat Iron for a very good cheap steak.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Lunch</span><span class="iv">Seven Dials Market, 35 Earlham St · or Flat Iron, 17–18 Henrietta St</span></div>
+        <div class="info-row"><span class="ik">Budget</span><span class="iv">£ · ~£12–15 a head</span></div>
+        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Seven+Dials+Market+Covent+Garden" target="_blank" rel="noopener">Seven Dials Market</a><a class="lb menu" href="https://flatironsteak.co.uk" target="_blank" rel="noopener">Flat Iron</a></div>
+      </div>
+    </div>
+
+    <div class="walk"><p><b>Into Soho:</b> north-west across Cambridge Circus (~8 min) for Chinatown, Leicester Square and the Soho streets.</p></div>
+
+    <div class="item"><div class="time">15:00</div><div class="h">Soho, Chinatown &amp; Leicester Square</div><div class="d">Wander the liveliest square mile in the city — record shops, Bar Italia, Chinatown's gates.</div><div class="meta"><span class="tag free">free</span></div></div>
+
+    <div class="opt">
+      <div class="flag">◇ Pre-dinner aperitivo · optional</div>
+      <div class="item n-drink" style="padding-top:6px">
+        <div class="time">18:15</div>
+        <div class="h">Bar Termini</div>
+        <div class="d">A tiny Italian counter-bar on Old Compton St — arguably London's best Negroni. A proper aperitivo before dinner two doors along. (Or Swift, next street over, for a quick house cocktail.)</div>
+        <div class="info">
+          <div class="info-row"><span class="ik">Where</span><span class="iv">7 Old Compton St, W1D 5JE</span></div>
+          <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Bar+Termini+Old+Compton+Street" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://www.bar-termini.com" target="_blank" rel="noopener">Site</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item n-pub">
+      <div class="time">19:30</div>
+      <div class="h">Dinner in Soho</div>
+      <div class="d">Value that punches above its price: Lina Stores for fresh pasta, Bao for Taiwanese buns, or Kiln for Thai over the counter. All walkable from Bar Termini.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Options</span><span class="iv">Lina Stores, 51 Greek St · Bao, 53 Lexington St · Kiln, 58 Brewer St</span></div>
+        <div class="info-row"><span class="ik">Budget</span><span class="iv">£–££ · ~£22–28 a head</span></div>
+        <div class="links"><a class="lb menu" href="https://linastores.co.uk" target="_blank" rel="noopener">Lina Stores</a><a class="lb menu" href="https://baolondon.com" target="_blank" rel="noopener">Bao</a><a class="lb menu" href="https://kilnsoho.com" target="_blank" rel="noopener">Kiln</a></div>
+      </div>
+    </div>
+
+    <div class="note"><b>Your call — West End show?</b><p>A Saturday-evening theatre slot fits here (tickets ~£30–90 pp, book ahead). Say the word and I'll build it in around dinner; otherwise the evening stays a relaxed Soho night. Booking links are on the Tickets page.</p></div>
+  </div>
+
+  <div class="pager">
+    <a href="#day2" data-view="day2"><small>Previous</small>‹ Day 02 — Grand Line</a>
+    <a class="next" href="#day4" data-view="day4"><small>Next</small>Day 04 — Oxford ›</a>
+  </div>
+</section>
+
+<!-- ============ DAY 4 ============ -->
+<section id="day4" class="view">
+  <a href="#plan" data-view="plan" class="back">‹ All days</a>
+  <div class="day-hd">
+    <span class="idx-no">Day 04 — Day Trip · Sun 2 Aug</span>
+    <h2>Oxford by rail</h2>
+    <div class="capbar"><span class="cap">Food · <b>£44</b> pp<i>+ train ~£28, separate</i></span><span class="tag bus">GWR direct</span></div>
+  </div>
+
+  <div class="getin"><div class="k">The shape of the day</div><p>An hour from Paddington and walkable off the platform. The order is set by Sunday hours: the market and colleges in the morning, the tower at noon, Christ Church from 2pm, and punting to finish. Book two things before you go (train + Christ Church).</p></div>
+
+  <div class="track">
+    <div class="getin" style="border-left-color:var(--teal)"><div class="k">Getting there</div><p>Circle line: Gloucester Road → Paddington (~13 min). GWR direct to Oxford (~55 min). From Oxford station, a 12-min walk into the centre via Park End St and George St.</p></div>
+
+    <div class="item n-bus">
+      <div class="time">08:45</div>
+      <div class="h">Paddington → Oxford</div>
+      <div class="d">Book advance singles the week before and it's a fraction of the walk-up fare. Trains run 2–3× an hour on Sundays.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Fare</span><span class="iv">Advance single £7–15 pp · walk-up off-peak return ~£28 pp</span></div>
+        <div class="links"><a class="lb book" href="https://www.gwr.com" target="_blank" rel="noopener">GWR</a><a class="lb site" href="https://www.thetrainline.com" target="_blank" rel="noopener">Trainline</a></div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="time">10:15</div>
+      <div class="h">Oxford Covered Market</div>
+      <div class="d">An 18th-century market of butchers, bakers and cafés — coffee and a browse to start. Open Sundays.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Where</span><span class="iv">Market St, OX1 3DZ</span></div>
+        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Oxford+Covered+Market" target="_blank" rel="noopener">Map</a></div>
+      </div>
+    </div>
+
+    <div class="walk"><p><b>Five minutes up:</b> to Radcliffe Square — the Radcliffe Camera (exterior; it's a working reading room), the Bodleian Library and the Divinity School.</p></div>
+
+    <div class="item"><div class="time">11:00</div><div class="h">Bodleian &amp; Divinity School</div><div class="d">The medieval heart of the university; the 15th-century Divinity School has a spectacular vaulted ceiling (small entry fee, or admire the quad free).</div><div class="meta"><span class="tag cost">£</span></div></div>
+
+    <div class="walk"><p><b>Onto the High Street</b> (2 min) for the tower climb — note it opens at <b>12 noon</b> on Sundays.</p></div>
+
+    <div class="item">
+      <div class="time">12:00</div>
+      <div class="h">University Church of St Mary — tower climb</div>
+      <div class="d">127 steps up a medieval turret to the best rooftop view in Oxford: Radcliffe Square, the domes and the spires. Church entry is free; the tower is a small ticket bought at the base.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Ticket</span><span class="iv">£6.15 pp · pay at the Radcliffe Square door (cash/card) · Sun 12:00–18:00</span></div>
+        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=University+Church+of+St+Mary+the+Virgin+Oxford" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://www.universitychurch.ox.ac.uk/content/tower-visit" target="_blank" rel="noopener">Tower info</a></div>
+      </div>
+    </div>
+
+    <div class="walk"><p><b>To lunch:</b> down the alley off New College Lane / Holywell St (5 min) — the Turf is famously hard to find, which is half the charm.</p></div>
+
+    <div class="item n-pub">
+      <div class="time">12:45</div>
+      <div class="h">Lunch — The Turf Tavern</div>
+      <div class="d">A 13th-century pub hidden down a passage, all low beams and courtyards. Proper pub food, comfortably inside the day's food cap.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Where</span><span class="iv">4–5 Bath Place, OX1 3SU</span></div>
+        <div class="info-row"><span class="ik">Budget</span><span class="iv">£–££</span></div>
+        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Turf+Tavern+Oxford" target="_blank" rel="noopener">Map</a><a class="lb menu" href="https://www.google.com/search?q=Turf+Tavern+Oxford+menu" target="_blank" rel="noopener">Menu</a></div>
+      </div>
+    </div>
+
+    <div class="walk"><p><b>South to St Aldate's</b> (~10 min) for Christ Church — which opens to visitors at <b>2pm on Sundays</b>, so the timing lines up.</p></div>
+
+    <div class="item">
+      <div class="time">14:00</div>
+      <div class="h">Christ Church — college &amp; cathedral</div>
+      <div class="d">The grandest college: Tom Quad, the cathedral, and the Great Hall that inspired the Harry Potter dining hall. Timed entry — book online to save £2 and guarantee a slot.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Ticket</span><span class="iv">~£18–20 pp online (summer rate) · Sun 14:00–17:00 · no bags over 40×30×20cm</span></div>
+        <div class="links"><a class="lb book" href="https://www.chch.ox.ac.uk/visit" target="_blank" rel="noopener">Book Christ Church</a><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Christ+Church+Oxford" target="_blank" rel="noopener">Map</a></div>
+      </div>
+    </div>
+
+    <div class="walk"><p><b>Through Christ Church Meadow</b> (free) to Magdalen Bridge (~15 min) — a lovely riverside stretch on the way to the punts.</p></div>
+
+    <div class="item">
+      <div class="time">15:45</div>
+      <div class="h">Punting on the Cherwell</div>
+      <div class="d">Take the pole yourself or be chauffeured past the Botanic Garden and college meadows. On a summer Sunday it's worth booking ahead.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Where</span><span class="iv">Magdalen Bridge Boathouse, High St, OX1 4AU</span></div>
+        <div class="info-row"><span class="ik">Cost</span><span class="iv">Self-drive £35/hr (up to 5) · chauffeured £50 per 30 min · book the weekend slot online</span></div>
+        <div class="links"><a class="lb book" href="https://www.oxfordpunting.co.uk" target="_blank" rel="noopener">Book punt</a><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Magdalen+Bridge+Boathouse+Oxford" target="_blank" rel="noopener">Map</a></div>
+      </div>
+    </div>
+
+    <div class="opt">
+      <div class="flag">◇ Spare-time pint · optional</div>
+      <div class="item n-drink" style="padding-top:6px">
+        <div class="time">17:15</div>
+        <div class="h">The Bear Inn</div>
+        <div class="d">One of Oxford's oldest and tiniest pubs (1242), its walls covered in clipped neckties. A quick pint before the train back.</div>
+        <div class="info">
+          <div class="info-row"><span class="ik">Where</span><span class="iv">6 Alfred St, OX1 4EH · 5 min off the High Street</span></div>
+          <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=The+Bear+Inn+Oxford+Alfred+Street" target="_blank" rel="noopener">Map &amp; hours</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item n-bus"><div class="time">~18:15</div><div class="h">Train back to London</div><div class="d">Direct to Paddington, home to South Ken by ~20:00. A light dinner near the hotel stays within the £44 cap.</div><div class="meta"><span class="tag bus">GWR direct</span></div></div>
+
+    <div class="note"><b>Book before you go</b><p>Two quick bookings make the day: advance train singles (much cheaper), and a Christ Church timed ticket for after 2pm. Everything else — market, tower, the Turf, the Bear — is walk-up. Prefer a palace? Bus S3 from Oxford reaches Blenheim Palace in ~40 min.</p></div>
+  </div>
+
+  <div class="pager">
+    <a href="#day3" data-view="day3"><small>Previous</small>‹ Day 03 — West End</a>
+    <a class="next" href="#day5" data-view="day5"><small>Next</small>Day 05 — Departure ›</a>
+  </div>
+</section>
+
+<!-- ============ DAY 5 ============ -->
+<section id="day5" class="view">
+  <a href="#plan" data-view="plan" class="back">‹ All days</a>
+  <div class="day-hd">
+    <span class="idx-no">Day 05 — Departure · Mon 3 Aug</span>
+    <h2>Parks, Knightsbridge &amp; home</h2>
+    <div class="capbar"><span class="cap">Food · <b>£22</b> pp<i>no dinner — you fly</i></span><span class="tag pub">last pint</span></div>
+  </div>
+
+  <div class="getin"><div class="k">The shape of the day</div><p>A calm last morning on the hotel's doorstep, a browse at Harrods, a hidden Belgravia pub for a farewell lunch, then bags and the airport. Aim to leave the hotel by ~16:15.</p></div>
+
+  <div class="track">
+    <div class="item"><div class="time">09:00</div><div class="h">Breakfast &amp; check out</div><div class="d">Store your cases at the hotel for the day.</div></div>
+
+    <div class="walk"><p><b>Five minutes north:</b> into Kensington Gardens.</p></div>
+
+    <div class="item">
+      <div class="time">10:00</div>
+      <div class="h">Kensington Gardens &amp; Hyde Park</div>
+      <div class="d">Albert Memorial, the Serpentine, the Italian Gardens — the quiet, green counterweight to a busy few days.</div>
+      <div class="info"><div class="info-row"><span class="ik">Cost</span><span class="iv">Free</span></div><div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Kensington+Gardens+London" target="_blank" rel="noopener">Map</a></div></div>
+    </div>
+
+    <div class="walk"><p><b>South-east through Knightsbridge</b> (~15 min, or bus 52) to Harrods.</p></div>
+
+    <div class="item">
+      <div class="time">11:30</div>
+      <div class="h">Knightsbridge &amp; Harrods</div>
+      <div class="d">The food halls are the thing — a browse and a last souvenir. A short walk from the hotel.</div>
+      <div class="info"><div class="info-row"><span class="ik">Where</span><span class="iv">87–135 Brompton Rd, SW1X 7XL</span></div><div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Harrods+Knightsbridge" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://www.harrods.com" target="_blank" rel="noopener">Site</a></div></div>
+    </div>
+
+    <div class="walk"><p><b>Into the Belgravia mews</b> (~10 min): Wilton Row and Kinnerton Street sit two minutes apart — the drink and the lunch below are neighbours.</p></div>
+
+    <div class="opt">
+      <div class="flag">◇ Spare-time pint · optional</div>
+      <div class="item n-drink" style="padding-top:6px">
+        <div class="time">12:45</div>
+        <div class="h">The Grenadier</div>
+        <div class="d">A famously hidden pub down a cobbled Belgravia mews, all red-and-blue soldiery and a single sentry box outside — if there's time, a memorable last London pint.</div>
+        <div class="info"><div class="info-row"><span class="ik">Where</span><span class="iv">18 Wilton Row, SW1X 7NR</span></div><div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=The+Grenadier+Wilton+Row+London" target="_blank" rel="noopener">Map &amp; hours</a></div></div>
+      </div>
+    </div>
+
+    <div class="item n-pub">
+      <div class="time">13:15</div>
+      <div class="h">Farewell lunch — The Nag's Head</div>
+      <div class="d">A tiny, quirky freehouse on a Belgravia back-lane — low ceilings, no phones, proper pub lunch. The right quiet note to end on.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">Where</span><span class="iv">53 Kinnerton St, SW1X 8ED</span></div>
+        <div class="info-row"><span class="ik">Budget</span><span class="iv">£–££</span></div>
+        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=The+Nags+Head+Kinnerton+Street+London" target="_blank" rel="noopener">Map &amp; menu</a></div>
+      </div>
+    </div>
+
+    <div class="item"><div class="time">15:30</div><div class="h">Collect bags</div><div class="d">Back to the Radisson for your cases.</div></div>
+
+    <div class="item n-bus">
+      <div class="time">16:15</div>
+      <div class="h">Head to London City Airport</div>
+      <div class="d">Aim to be airside by ~17:30 for the 19:25.</div>
+      <div class="info">
+        <div class="info-row"><span class="ik">By rail</span><span class="iv">Gloucester Road → District to Tower Hill → DLR to London City (~55 min, ~£6)</span></div>
+        <div class="info-row"><span class="ik">By cab</span><span class="iv">~45–60 min · ~£45–60</span></div>
+        <div class="links"><a class="lb map" href="https://www.google.com/maps/dir/Gloucester+Road+Station+London/London+City+Airport" target="_blank" rel="noopener">Route to LCY</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="#day4" data-view="day4"><small>Previous</small>‹ Day 04 — Oxford</a>
+    <a class="next" href="#tickets" data-view="tickets"><small>Next</small>Tickets &amp; booking ›</a>
+  </div>
+</section>
+
+<!-- ============ TICKETS ============ -->
+<section id="tickets" class="view">
+  <a href="#plan" data-view="plan" class="back">‹ All days</a>
+  <header class="tk-hero">
+    <div class="eyebrow">Booking marketplace</div>
+    <h1 style="font-size:clamp(30px,8vw,50px)">Tickets<br><em>&amp; where to buy</em></h1>
+    <p class="sub">Everything with a price, in one place. Two buckets: book these before you fly, and tap-or-pay-on-the-day. All links go to the official seller.</p>
+  </header>
+
+  <div class="tk-group">
+    <div class="tk-gl">Book before you go</div>
+
+    <div class="tk">
+      <div class="tk-top"><span class="tk-name">Oxford trains</span><span class="tk-price">£7–15 pp</span></div>
+      <div class="tk-meta"><b>Day 4 · Sun.</b> Advance singles are far cheaper than walk-up (~£28 return). Released up to 12 weeks ahead — book the week before at the latest.</div>
+      <div class="tk-links"><a class="lb book" href="https://www.gwr.com" target="_blank" rel="noopener">GWR</a><a class="lb site" href="https://www.thetrainline.com" target="_blank" rel="noopener">Trainline</a></div>
+    </div>
+
+    <div class="tk">
+      <div class="tk-top"><span class="tk-name">Christ Church, Oxford</span><span class="tk-price">~£18–20 pp</span></div>
+      <div class="tk-meta"><b>Day 4 · Sun, 2–5pm only.</b> Timed entry; book online to save £2 and guarantee a slot. Tickets released weekly.</div>
+      <div class="tk-links"><a class="lb book" href="https://www.chch.ox.ac.uk/visit" target="_blank" rel="noopener">Book</a></div>
+    </div>
+
+    <div class="tk">
+      <div class="tk-top"><span class="tk-name">Punting — Magdalen Bridge</span><span class="tk-price">£35 / hr</span></div>
+      <div class="tk-meta"><b>Day 4 · Sun.</b> Self-drive punt up to 5 people (£35/hr) or chauffeured (£50 per 30 min). Weekend slots should be booked ahead.</div>
+      <div class="tk-links"><a class="lb book" href="https://www.oxfordpunting.co.uk" target="_blank" rel="noopener">Book</a></div>
+    </div>
+
+    <div class="tk">
+      <div class="tk-top"><span class="tk-name">Tower of London</span><span class="tk-price">£37 pp</span></div>
+      <div class="tk-meta"><b>Day 2 · Fri — your call.</b> Only if you're going inside for the Crown Jewels. Timed slot; book ahead in summer. Skip it and the day costs nothing here.</div>
+      <div class="tk-links"><a class="lb book" href="https://www.hrp.org.uk/tower-of-london/" target="_blank" rel="noopener">Book</a></div>
+    </div>
+
+    <div class="tk">
+      <div class="tk-top"><span class="tk-name">West End show</span><span class="tk-price">£30–90 pp</span></div>
+      <div class="tk-meta"><b>Day 3 · Sat — optional.</b> If you want a theatre evening, book ahead. TodayTix often has same-week discounts and a lottery.</div>
+      <div class="tk-links"><a class="lb book" href="https://www.todaytix.com" target="_blank" rel="noopener">TodayTix</a><a class="lb site" href="https://officiallondontheatre.com" target="_blank" rel="noopener">Official London Theatre</a></div>
+    </div>
+  </div>
+
+  <div class="tk-group">
+    <div class="tk-gl">On the day · tap or pay there</div>
+
+    <div class="tk">
+      <div class="tk-top"><span class="tk-name">Buses &amp; Tube</span><span class="tk-price">~£8.90 / day</span></div>
+      <div class="tk-meta">Just tap a contactless card or phone. Buses £1.75 a ride with free Hopper changes within the hour; daily caps apply automatically (no need for paper tickets or a paper Oyster).</div>
+      <div class="tk-links"><a class="lb site" href="https://tfl.gov.uk/fares/" target="_blank" rel="noopener">TfL fares</a></div>
+    </div>
+
+    <div class="tk">
+      <div class="tk-top"><span class="tk-name">St Mary's Tower, Oxford</span><span class="tk-price">£6.15 pp</span></div>
+      <div class="tk-meta"><b>Day 4 · Sun.</b> Buy at the door on Radcliffe Square (cash or card). Opens noon on Sundays.</div>
+      <div class="tk-links"><a class="lb site" href="https://www.universitychurch.ox.ac.uk/content/tower-visit" target="_blank" rel="noopener">Info</a></div>
+    </div>
+
+    <div class="tk">
+      <div class="tk-top"><span class="tk-name">Battersea — Lift 109</span><span class="tk-price">~£17 pp</span></div>
+      <div class="tk-meta"><b>Day 1 · optional.</b> The glass lift up the chimney. The rest of Battersea Power Station is free to wander.</div>
+      <div class="tk-links"><a class="lb site" href="https://batterseapowerstation.co.uk" target="_blank" rel="noopener">Info</a></div>
+    </div>
+
+    <div class="tk">
+      <div class="tk-top"><span class="tk-name">Free to enter</span><span class="tk-price">£0</span></div>
+      <div class="tk-meta">Farlows, Borough Market, Fortnum &amp; Mason, Harrods, the parks, St Paul's exterior, Tower Bridge exterior, and every pub. Most of the trip, in other words.</div>
+    </div>
+  </div>
+
+  <footer>
+    <p><b>Rule of thumb:</b> the only things that genuinely need advance booking are the Oxford train, Christ Church, weekend punting, and — if you choose them — the Tower and a show. Everything else you can decide on the day.</p>
+  </footer>
+</section>
+
+</div>
+
+<script>
+  // Single scrolling page: nav links and cards jump to the matching section.
+  function goTo(id){
+    var el = document.getElementById(id) || document.getElementById('plan');
+    if(el && el.scrollIntoView){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
+  }
+  document.addEventListener('click', function(e){
+    var el = e.target && e.target.closest ? e.target.closest('[data-view]') : null;
+    if(el){ e.preventDefault(); goTo(el.getAttribute('data-view')); }
+  });
+</script>
+</body>
+</html>
