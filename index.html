@@ -105,6 +105,11 @@
   .walk::before{content:"";position:absolute;left:5px;top:0;bottom:0;width:2px;background:repeating-linear-gradient(var(--line) 0 4px,transparent 4px 8px)}
   .walk p{font-size:12.5px;color:var(--muted);font-style:italic;padding:6px 0}
   .walk p b{font-style:normal;color:var(--teal-2);font-weight:600}
+  .route{display:inline-flex;align-items:center;gap:7px;margin-top:9px;font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.02em;color:var(--teal);background:#fff;border:1px solid var(--teal);border-radius:9px;padding:7px 12px;text-decoration:none}
+  .route::before{content:"➤";font-size:10px;color:var(--bus)}
+  .route.transit::before{content:"▤";color:var(--teal)}
+  .route:active{background:var(--teal);color:#fff}
+  .info + .route,.item .route{margin-left:0}
 
   /* venue info block */
   .info{margin-top:10px;border:1px solid var(--line);border-radius:11px;background:#fff;overflow:hidden}
@@ -267,7 +272,7 @@
       <div class="info">
         <div class="info-row"><span class="ik">Taxi / Uber</span><span class="iv">~45–65 min · ~£45–60 — door to door with bags</span></div>
         <div class="info-row"><span class="ik">By rail</span><span class="iv">DLR to Tower Gateway → walk to Tower Hill → District line direct to Gloucester Road (~60 min, ~£6)</span></div>
-        <div class="links"><a class="lb map" href="https://www.google.com/maps/dir/London+City+Airport/Radisson+Blu+Edwardian+Vanderbilt+Cromwell+Road" target="_blank" rel="noopener">Route to hotel</a></div>
+        <div class="links"><a class="lb map" href="https://maps.apple.com/?saddr=London%20City%20Airport&daddr=Radisson%20Blu%20Vanderbilt%2C%20Cromwell%20Road%2C%20London&dirflg=r" target="_blank" rel="noopener">Route to hotel</a></div>
       </div>
     </div>
 
@@ -280,7 +285,7 @@
       <div class="meta"><span class="tag cost">£</span></div>
     </div>
 
-    <div class="walk"><p><b>To Chelsea:</b> District/Circle line Gloucester Road → Sloane Square (2 stops, 5 min), or a 15-min walk east.</p></div>
+    <div class="walk"><p><b>To Chelsea:</b> District/Circle line Gloucester Road → Sloane Square (2 stops, 5 min), or a 15-min walk east.</p><a class="route transit" href="https://maps.apple.com/?saddr=Gloucester%20Road%20Station%2C%20London&daddr=Sloane%20Square%20Station%2C%20London&dirflg=r" target="_blank" rel="noopener">Transit in Apple Maps</a></div>
 
     <div class="item">
       <div class="time">12:30</div>
@@ -289,7 +294,7 @@
       <div class="meta"><span class="tag free">free</span></div>
     </div>
 
-    <div class="walk"><p><b>To Battersea:</b> down to the river and across Chelsea Bridge (~15 min) into Battersea Park; the Power Station is a further 10 min along the embankment.</p></div>
+    <div class="walk"><p><b>To Battersea:</b> down to the river and across Chelsea Bridge (~15 min) into Battersea Park; the Power Station is a further 10 min along the embankment.</p><a class="route" href="https://maps.apple.com/?saddr=Duke%20of%20York%20Square%2C%20London&daddr=Battersea%20Power%20Station%2C%20London&dirflg=w" target="_blank" rel="noopener">Walk in Apple Maps</a></div>
 
     <div class="item">
       <div class="time">14:30</div>
@@ -298,11 +303,11 @@
       <div class="info">
         <div class="info-row"><span class="ik">Where</span><span class="iv">Circus Rd West, SW11 8DD</span></div>
         <div class="info-row"><span class="ik">Cost</span><span class="iv">Free to wander · the Lift 109 chimney view is ~£17 if you fancy it</span></div>
-        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Battersea+Power+Station" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://batterseapowerstation.co.uk" target="_blank" rel="noopener">Site</a></div>
+        <div class="links"><a class="lb map" href="https://maps.apple.com/?q=Battersea+Power+Station" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://batterseapowerstation.co.uk" target="_blank" rel="noopener">Site</a></div>
       </div>
     </div>
 
-    <div class="walk"><p><b>Back to base:</b> bus 137 or 452 toward Sloane Square, then District line home (~25 min). Freshen up and check in.</p></div>
+    <div class="walk"><p><b>Back to base:</b> bus 137 or 452 toward Sloane Square, then District line home (~25 min). Freshen up and check in.</p><a class="route transit" href="https://maps.apple.com/?saddr=Battersea%20Power%20Station%2C%20London&daddr=Radisson%20Blu%20Vanderbilt%2C%20Cromwell%20Road%2C%20London&dirflg=r" target="_blank" rel="noopener">Transit in Apple Maps</a></div>
 
     <div class="opt">
       <div class="flag">◇ Spare-time drink · optional</div>
@@ -312,7 +317,7 @@
         <div class="d">A cheerful little back-street pub tucked in the mews behind the Royal Albert Hall — a good first London pint before dinner.</div>
         <div class="info">
           <div class="info-row"><span class="ik">Where</span><span class="iv">30 Queen's Gate Mews, SW7 5QL · ~10 min from hotel</span></div>
-          <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=The+Queens+Arms+Queens+Gate+Mews+London" target="_blank" rel="noopener">Map &amp; hours</a></div>
+          <div class="links"><a class="lb map" href="https://maps.apple.com/?q=The+Queens+Arms+Queens+Gate+Mews+London" target="_blank" rel="noopener">Map &amp; hours</a></div>
         </div>
       </div>
     </div>
@@ -325,7 +330,7 @@
         <div class="info-row"><span class="ik">Where</span><span class="iv">86 Fulham Rd, SW3 6HR · ~2 min from the Anglesea, ~12 min from the hotel</span></div>
         <div class="info-row"><span class="ik">Budget</span><span class="iv">££ · mains ~£20–28 — the upper end of today's cap</span></div>
         <div class="info-row"><span class="ik">Value next door</span><span class="iv">Duke of Clarence (148 Old Brompton Rd) · The Drayton Arms (153 Old Brompton Rd) — both ~5 min, cheaper, great roasts</span></div>
-        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=The+Hunters+Moon+Fulham+Road+London" target="_blank" rel="noopener">Map</a><a class="lb menu" href="https://www.google.com/search?q=The+Hunters+Moon+Fulham+Road+menu" target="_blank" rel="noopener">Menu</a></div>
+        <div class="links"><a class="lb map" href="https://maps.apple.com/?q=The+Hunters+Moon+Fulham+Road+London" target="_blank" rel="noopener">Map</a><a class="lb menu" href="https://www.google.com/search?q=The+Hunters+Moon+Fulham+Road+menu" target="_blank" rel="noopener">Menu</a></div>
       </div>
     </div>
   </div>
@@ -350,12 +355,12 @@
   <div class="track">
     <div class="item"><div class="time">09:00</div><div class="h">Coffee near Sloane Square</div><div class="d">Fuel up, then walk to the bus stop on the King's Road side.</div><div class="meta"><span class="tag cost">£</span></div></div>
 
-    <div class="walk"><p><b>Getting there:</b> District line Gloucester Road → Sloane Square (5 min). Tap in with the same contactless card you'll use all day.</p></div>
+    <div class="walk"><p><b>Getting there:</b> District line Gloucester Road → Sloane Square (5 min). Tap in with the same contactless card you'll use all day.</p><a class="route transit" href="https://maps.apple.com/?saddr=Gloucester%20Road%20Station%2C%20London&daddr=Sloane%20Square%2C%20London&dirflg=r" target="_blank" rel="noopener">Transit in Apple Maps</a></div>
 
     <div class="item n-bus">
       <div class="time">09:30</div>
       <div class="h">Bus 11 — the DIY grand tour</div>
-      <div class="d">Top deck, front seat, direction Waterloo. In one ride: Pimlico, Victoria, Westminster Cathedral, and Parliament Square — Westminster Abbey, Big Ben and the Houses of Parliament. Hop off at Parliament Square, just before the bus turns over Westminster Bridge.</div>
+      <div class="d">Top deck, front seat, direction Waterloo. In one ride: Pimlico, Victoria, Westminster Cathedral, and Parliament Square — Westminster Abbey, Big Ben and the Houses of Parliament. Hop off at Parliament Square, just before the bus turns over Westminster Bridge.</div><a class="route transit" href="https://maps.apple.com/?saddr=Sloane%20Square%2C%20London&daddr=Parliament%20Square%2C%20London&dirflg=r" target="_blank" rel="noopener">Transit in Apple Maps</a>
       <div class="info">
         <div class="info-row"><span class="ik">Board</span><span class="iv">Sloane Square, King's Road side · direction Victoria / Waterloo · ~5 min from the hotel via the District line</span></div>
         <div class="info-row"><span class="ik">Fare</span><span class="iv">£1.75 · contactless · Hopper gives free changes within 1 hr</span></div>
@@ -363,11 +368,11 @@
       </div>
     </div>
 
-    <div class="walk"><p><b>Up Whitehall to Trafalgar:</b> from Parliament Square walk up Whitehall past the Cenotaph, Downing Street and Horse Guards to Trafalgar Square (~12 min). <b>Note:</b> the 11 was shortened to Waterloo in 2023, so it no longer runs into the City — the 15 does that job this afternoon.</p></div>
+    <div class="walk"><p><b>Up Whitehall to Trafalgar:</b> from Parliament Square walk up Whitehall past the Cenotaph, Downing Street and Horse Guards to Trafalgar Square (~12 min). <b>Note:</b> the 11 was shortened to Waterloo in 2023, so it no longer runs into the City — the 15 does that job this afternoon.</p><a class="route" href="https://maps.apple.com/?saddr=Parliament%20Square%2C%20London&daddr=Trafalgar%20Square%2C%20London&dirflg=w" target="_blank" rel="noopener">Walk in Apple Maps</a></div>
 
     <div class="item"><div class="time">11:00</div><div class="h">Trafalgar Square</div><div class="d">Nelson's Column, the fountains and the National Gallery's portico. A good place to pause before lunch.</div><div class="meta"><span class="tag free">free</span></div></div>
 
-    <div class="walk"><p><b>Riverside walk to lunch:</b> cross the pedestrian Golden Jubilee Bridge to the South Bank and stroll east past the Southbank Centre, Tate Modern and Shakespeare's Globe to Borough Market (~30 min, free and scenic). Short on energy? Charing Cross → London Bridge by tube instead.</p></div>
+    <div class="walk"><p><b>Riverside walk to lunch:</b> cross the pedestrian Golden Jubilee Bridge to the South Bank and stroll east past the Southbank Centre, Tate Modern and Shakespeare's Globe to Borough Market (~30 min, free and scenic). Short on energy? Charing Cross → London Bridge by tube instead.</p><a class="route" href="https://maps.apple.com/?saddr=Trafalgar%20Square%2C%20London&daddr=Borough%20Market%2C%20London&dirflg=w" target="_blank" rel="noopener">Walk in Apple Maps</a></div>
 
     <div class="item">
       <div class="time">12:15</div>
@@ -376,16 +381,16 @@
       <div class="info">
         <div class="info-row"><span class="ik">Where</span><span class="iv">8 Southwark St, SE1 1TL · tube London Bridge</span></div>
         <div class="info-row"><span class="ik">Budget</span><span class="iv">£ · ~£10–14 a head grazing</span></div>
-        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Borough+Market+London" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://boroughmarket.org.uk" target="_blank" rel="noopener">Traders &amp; hours</a></div>
+        <div class="links"><a class="lb map" href="https://maps.apple.com/?q=Borough+Market+London" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://boroughmarket.org.uk" target="_blank" rel="noopener">Traders &amp; hours</a></div>
       </div>
     </div>
 
-    <div class="walk"><p><b>Cross to the City:</b> from Borough, walk over the Millennium Bridge to St Paul's (~12 min) — the Wren dome dead ahead the whole way.</p></div>
+    <div class="walk"><p><b>Cross to the City:</b> from Borough, walk over the Millennium Bridge to St Paul's (~12 min) — the Wren dome dead ahead the whole way.</p><a class="route" href="https://maps.apple.com/?saddr=Borough%20Market%2C%20London&daddr=St%20Paul%27s%20Cathedral%2C%20London&dirflg=w" target="_blank" rel="noopener">Walk in Apple Maps</a></div>
 
     <div class="item n-bus">
       <div class="time">13:45</div>
       <div class="h">Bus 15 — the afternoon City ride</div>
-      <div class="d">Top deck again, direction Blackwall. The classic City cruise: past St Paul's, down Cannon Street, past the Monument to the Great Fire, and out to Tower Hill. Hop off right at the Tower.</div>
+      <div class="d">Top deck again, direction Blackwall. The classic City cruise: past St Paul's, down Cannon Street, past the Monument to the Great Fire, and out to Tower Hill. Hop off right at the Tower.</div><a class="route transit" href="https://maps.apple.com/?saddr=St%20Paul%27s%20Cathedral%2C%20London&daddr=Tower%20of%20London&dirflg=r" target="_blank" rel="noopener">Transit in Apple Maps</a>
       <div class="info">
         <div class="info-row"><span class="ik">Board</span><span class="iv">St Paul's (St Paul's Churchyard / Cannon St), direction Blackwall — or ride the full run from Trafalgar: Strand, Fleet St, St Paul's, Tower</span></div>
         <div class="info-row"><span class="ik">Off at</span><span class="iv">Tower Hill (~10 min from St Paul's)</span></div>
@@ -401,13 +406,13 @@
       <div class="info">
         <div class="info-row"><span class="ik">Inside</span><span class="iv">£37 pp · opens 09:00 Fri · allow 2–3 hrs · book a timed slot online</span></div>
         <div class="info-row"><span class="ik">Outside</span><span class="iv">Free — walls, wharf and Tower Bridge exterior</span></div>
-        <div class="links"><a class="lb book" href="https://www.hrp.org.uk/tower-of-london/" target="_blank" rel="noopener">Book Tower</a><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Tower+of+London" target="_blank" rel="noopener">Map</a></div>
+        <div class="links"><a class="lb book" href="https://www.hrp.org.uk/tower-of-london/" target="_blank" rel="noopener">Book Tower</a><a class="lb map" href="https://maps.apple.com/?q=Tower+of+London" target="_blank" rel="noopener">Map</a></div>
       </div>
     </div>
 
     <div class="note"><b>Your call — enter the Tower?</b><p>Inside is ~£37 pp and 2–3 hrs; skip it and you gain an unhurried river walk and an earlier pint. Do it, and dinner simply shifts later — the Prospect serves till ~21:00 and is open to 23:00.</p></div>
 
-    <div class="walk"><p><b>The river walk:</b> follow the Thames Path east through Wapping to the pub (~30 min / 1.5 mi) — cobbled lanes, old wharves, and quiet river views.</p></div>
+    <div class="walk"><p><b>The river walk:</b> follow the Thames Path east through Wapping to the pub (~30 min / 1.5 mi) — cobbled lanes, old wharves, and quiet river views.</p><a class="route" href="https://maps.apple.com/?saddr=Tower%20of%20London&daddr=The%20Prospect%20of%20Whitby%2C%20Wapping%20Wall%2C%20London&dirflg=w" target="_blank" rel="noopener">Walk in Apple Maps</a></div>
 
     <div class="opt">
       <div class="flag">◇ Spare-time drink · right on the route</div>
@@ -417,7 +422,7 @@
         <div class="d">A narrow, ancient riverside pub you pass on the walk — a first pint on its tiny Thames-side deck before dinner further along.</div>
         <div class="info">
           <div class="info-row"><span class="ik">Where</span><span class="iv">62 Wapping High St, E1W 2PN · on the Tower→Prospect walk</span></div>
-          <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Town+of+Ramsgate+Wapping" target="_blank" rel="noopener">Map &amp; hours</a></div>
+          <div class="links"><a class="lb map" href="https://maps.apple.com/?q=Town+of+Ramsgate+Wapping" target="_blank" rel="noopener">Map &amp; hours</a></div>
         </div>
       </div>
     </div>
@@ -430,7 +435,7 @@
         <div class="info-row"><span class="ik">Where</span><span class="iv">57 Wapping Wall, E1W 3SH</span></div>
         <div class="info-row"><span class="ik">Getting home</span><span class="iv">Overground from Wapping (4 min walk) → change for South Ken; or a cab</span></div>
         <div class="info-row"><span class="ik">Budget</span><span class="iv">££ · your £40 pp covers a main + a couple of drinks</span></div>
-        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=The+Prospect+of+Whitby+Wapping+Wall" target="_blank" rel="noopener">Map</a><a class="lb menu" href="https://www.google.com/search?q=Prospect+of+Whitby+Wapping+menu" target="_blank" rel="noopener">Menu</a></div>
+        <div class="links"><a class="lb map" href="https://maps.apple.com/?q=The+Prospect+of+Whitby+Wapping+Wall" target="_blank" rel="noopener">Map</a><a class="lb menu" href="https://www.google.com/search?q=Prospect+of+Whitby+Wapping+menu" target="_blank" rel="noopener">Menu</a></div>
       </div>
     </div>
   </div>
@@ -453,7 +458,7 @@
   <div class="getin"><div class="k">The shape of the day</div><p>Start at the London fly-fishing institution the moment it opens, then let the West End unspool on foot: Fortnum's, Covent Garden, Soho and Chinatown, an aperitivo, and dinner. All within a tight, walkable square.</p></div>
 
   <div class="track">
-    <div class="getin" style="border-left-color:var(--teal)"><div class="k">Getting there</div><p>Piccadilly line: Gloucester Road → Piccadilly Circus (direct, ~10 min), then a 4-min walk down to Pall Mall.</p></div>
+    <div class="getin" style="border-left-color:var(--teal)"><div class="k">Getting there</div><p>Piccadilly line: Gloucester Road → Piccadilly Circus (direct, ~10 min), then a 4-min walk down to Pall Mall.</p><a class="route transit" href="https://maps.apple.com/?saddr=Gloucester%20Road%20Station%2C%20London&daddr=Farlows%2C%209%20Pall%20Mall%2C%20London&dirflg=r" target="_blank" rel="noopener">Transit in Apple Maps</a></div>
 
     <div class="item n-fish">
       <div class="time">10:00</div>
@@ -462,13 +467,13 @@
       <div class="info">
         <div class="info-row"><span class="ik">Where</span><span class="iv">9 Pall Mall, SW1Y 5NP · tube Piccadilly Circus</span></div>
         <div class="info-row"><span class="ik">Note</span><span class="iv">No ticket — just go in. Ask about the cane-rod room upstairs.</span></div>
-        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Farlows+9+Pall+Mall+London" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://www.farlows.co.uk" target="_blank" rel="noopener">farlows.co.uk</a></div>
+        <div class="links"><a class="lb map" href="https://maps.apple.com/?q=Farlows+9+Pall+Mall+London" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://www.farlows.co.uk" target="_blank" rel="noopener">farlows.co.uk</a></div>
       </div>
     </div>
 
-    <div class="walk"><p><b>Two minutes away:</b> up to Piccadilly for a browse of Fortnum &amp; Mason's food hall (181 Piccadilly) — a good spot for an edible souvenir without the Harrods crowds.</p></div>
+    <div class="walk"><p><b>Two minutes away:</b> up to Piccadilly for a browse of Fortnum &amp; Mason's food hall (181 Piccadilly) — a good spot for an edible souvenir without the Harrods crowds.</p><a class="route" href="https://maps.apple.com/?saddr=Farlows%2C%209%20Pall%20Mall%2C%20London&daddr=Fortnum%20and%20Mason%2C%20Piccadilly%2C%20London&dirflg=w" target="_blank" rel="noopener">Walk in Apple Maps</a></div>
 
-    <div class="walk"><p><b>To Covent Garden:</b> through Piccadilly Circus and Leicester Square to the market (~12 min).</p></div>
+    <div class="walk"><p><b>To Covent Garden:</b> through Piccadilly Circus and Leicester Square to the market (~12 min).</p><a class="route" href="https://maps.apple.com/?saddr=Fortnum%20and%20Mason%2C%20Piccadilly%2C%20London&daddr=Covent%20Garden%2C%20London&dirflg=w" target="_blank" rel="noopener">Walk in Apple Maps</a></div>
 
     <div class="item">
       <div class="time">12:30</div>
@@ -477,11 +482,11 @@
       <div class="info">
         <div class="info-row"><span class="ik">Lunch</span><span class="iv">Seven Dials Market, 35 Earlham St · or Flat Iron, 17–18 Henrietta St</span></div>
         <div class="info-row"><span class="ik">Budget</span><span class="iv">£ · ~£12–15 a head</span></div>
-        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Seven+Dials+Market+Covent+Garden" target="_blank" rel="noopener">Seven Dials Market</a><a class="lb menu" href="https://flatironsteak.co.uk" target="_blank" rel="noopener">Flat Iron</a></div>
+        <div class="links"><a class="lb map" href="https://maps.apple.com/?q=Seven+Dials+Market+Covent+Garden" target="_blank" rel="noopener">Seven Dials Market</a><a class="lb menu" href="https://flatironsteak.co.uk" target="_blank" rel="noopener">Flat Iron</a></div>
       </div>
     </div>
 
-    <div class="walk"><p><b>Into Soho:</b> north-west across Cambridge Circus (~8 min) for Chinatown, Leicester Square and the Soho streets.</p></div>
+    <div class="walk"><p><b>Into Soho:</b> north-west across Cambridge Circus (~8 min) for Chinatown, Leicester Square and the Soho streets.</p><a class="route" href="https://maps.apple.com/?saddr=Covent%20Garden%2C%20London&daddr=Bar%20Termini%2C%20Old%20Compton%20Street%2C%20London&dirflg=w" target="_blank" rel="noopener">Walk in Apple Maps</a></div>
 
     <div class="item"><div class="time">15:00</div><div class="h">Soho, Chinatown &amp; Leicester Square</div><div class="d">Wander the liveliest square mile in the city — record shops, Bar Italia, Chinatown's gates.</div><div class="meta"><span class="tag free">free</span></div></div>
 
@@ -493,7 +498,7 @@
         <div class="d">A tiny Italian counter-bar on Old Compton St — arguably London's best Negroni. A proper aperitivo before dinner two doors along. (Or Swift, next street over, for a quick house cocktail.)</div>
         <div class="info">
           <div class="info-row"><span class="ik">Where</span><span class="iv">7 Old Compton St, W1D 5JE</span></div>
-          <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Bar+Termini+Old+Compton+Street" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://www.bar-termini.com" target="_blank" rel="noopener">Site</a></div>
+          <div class="links"><a class="lb map" href="https://maps.apple.com/?q=Bar+Termini+Old+Compton+Street" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://www.bar-termini.com" target="_blank" rel="noopener">Site</a></div>
         </div>
       </div>
     </div>
@@ -530,12 +535,12 @@
   <div class="getin"><div class="k">The shape of the day</div><p>An hour from Paddington and walkable off the platform. The order is set by Sunday hours: the market and colleges in the morning, the tower at noon, Christ Church from 2pm, and punting to finish. Book two things before you go (train + Christ Church).</p></div>
 
   <div class="track">
-    <div class="getin" style="border-left-color:var(--teal)"><div class="k">Getting there</div><p>Circle line: Gloucester Road → Paddington (~13 min). GWR direct to Oxford (~55 min). From Oxford station, a 12-min walk into the centre via Park End St and George St.</p></div>
+    <div class="getin" style="border-left-color:var(--teal)"><div class="k">Getting there</div><p>Circle line: Gloucester Road → Paddington (~13 min). GWR direct to Oxford (~55 min). From Oxford station, a 12-min walk into the centre via Park End St and George St.</p><a class="route transit" href="https://maps.apple.com/?saddr=Gloucester%20Road%20Station%2C%20London&daddr=Paddington%20Station%2C%20London&dirflg=r" target="_blank" rel="noopener">Transit in Apple Maps</a></div>
 
     <div class="item n-bus">
       <div class="time">08:45</div>
       <div class="h">Paddington → Oxford</div>
-      <div class="d">Book advance singles the week before and it's a fraction of the walk-up fare. Trains run 2–3× an hour on Sundays.</div>
+      <div class="d">Book advance singles the week before and it's a fraction of the walk-up fare. Trains run 2–3× an hour on Sundays.</div><a class="route transit" href="https://maps.apple.com/?saddr=Paddington%20Station%2C%20London&daddr=Oxford%20Railway%20Station&dirflg=r" target="_blank" rel="noopener">Transit in Apple Maps</a>
       <div class="info">
         <div class="info-row"><span class="ik">Fare</span><span class="iv">Advance single £7–15 pp · walk-up off-peak return ~£28 pp</span></div>
         <div class="links"><a class="lb book" href="https://www.gwr.com" target="_blank" rel="noopener">GWR</a><a class="lb site" href="https://www.thetrainline.com" target="_blank" rel="noopener">Trainline</a></div>
@@ -548,15 +553,15 @@
       <div class="d">An 18th-century market of butchers, bakers and cafés — coffee and a browse to start. Open Sundays.</div>
       <div class="info">
         <div class="info-row"><span class="ik">Where</span><span class="iv">Market St, OX1 3DZ</span></div>
-        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Oxford+Covered+Market" target="_blank" rel="noopener">Map</a></div>
+        <div class="links"><a class="lb map" href="https://maps.apple.com/?q=Oxford+Covered+Market" target="_blank" rel="noopener">Map</a></div>
       </div>
     </div>
 
-    <div class="walk"><p><b>Five minutes up:</b> to Radcliffe Square — the Radcliffe Camera (exterior; it's a working reading room), the Bodleian Library and the Divinity School.</p></div>
+    <div class="walk"><p><b>Five minutes up:</b> to Radcliffe Square — the Radcliffe Camera (exterior; it's a working reading room), the Bodleian Library and the Divinity School.</p><a class="route" href="https://maps.apple.com/?saddr=Oxford%20Covered%20Market&daddr=Radcliffe%20Camera%2C%20Oxford&dirflg=w" target="_blank" rel="noopener">Walk in Apple Maps</a></div>
 
     <div class="item"><div class="time">11:00</div><div class="h">Bodleian &amp; Divinity School</div><div class="d">The medieval heart of the university; the 15th-century Divinity School has a spectacular vaulted ceiling (small entry fee, or admire the quad free).</div><div class="meta"><span class="tag cost">£</span></div></div>
 
-    <div class="walk"><p><b>Onto the High Street</b> (2 min) for the tower climb — note it opens at <b>12 noon</b> on Sundays.</p></div>
+    <div class="walk"><p><b>Onto the High Street</b> (2 min) for the tower climb — note it opens at <b>12 noon</b> on Sundays.</p><a class="route" href="https://maps.apple.com/?saddr=Bodleian%20Library%2C%20Oxford&daddr=University%20Church%20of%20St%20Mary%20the%20Virgin%2C%20Oxford&dirflg=w" target="_blank" rel="noopener">Walk in Apple Maps</a></div>
 
     <div class="item">
       <div class="time">12:00</div>
@@ -564,11 +569,11 @@
       <div class="d">127 steps up a medieval turret to the best rooftop view in Oxford: Radcliffe Square, the domes and the spires. Church entry is free; the tower is a small ticket bought at the base.</div>
       <div class="info">
         <div class="info-row"><span class="ik">Ticket</span><span class="iv">£6.15 pp · pay at the Radcliffe Square door (cash/card) · Sun 12:00–18:00</span></div>
-        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=University+Church+of+St+Mary+the+Virgin+Oxford" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://www.universitychurch.ox.ac.uk/content/tower-visit" target="_blank" rel="noopener">Tower info</a></div>
+        <div class="links"><a class="lb map" href="https://maps.apple.com/?q=University+Church+of+St+Mary+the+Virgin+Oxford" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://www.universitychurch.ox.ac.uk/content/tower-visit" target="_blank" rel="noopener">Tower info</a></div>
       </div>
     </div>
 
-    <div class="walk"><p><b>To lunch:</b> down the alley off New College Lane / Holywell St (5 min) — the Turf is famously hard to find, which is half the charm.</p></div>
+    <div class="walk"><p><b>To lunch:</b> down the alley off New College Lane / Holywell St (5 min) — the Turf is famously hard to find, which is half the charm.</p><a class="route" href="https://maps.apple.com/?saddr=University%20Church%20of%20St%20Mary%20the%20Virgin%2C%20Oxford&daddr=Turf%20Tavern%2C%20Oxford&dirflg=w" target="_blank" rel="noopener">Walk in Apple Maps</a></div>
 
     <div class="item n-pub">
       <div class="time">12:45</div>
@@ -577,11 +582,11 @@
       <div class="info">
         <div class="info-row"><span class="ik">Where</span><span class="iv">4–5 Bath Place, OX1 3SU</span></div>
         <div class="info-row"><span class="ik">Budget</span><span class="iv">£–££</span></div>
-        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Turf+Tavern+Oxford" target="_blank" rel="noopener">Map</a><a class="lb menu" href="https://www.google.com/search?q=Turf+Tavern+Oxford+menu" target="_blank" rel="noopener">Menu</a></div>
+        <div class="links"><a class="lb map" href="https://maps.apple.com/?q=Turf+Tavern+Oxford" target="_blank" rel="noopener">Map</a><a class="lb menu" href="https://www.google.com/search?q=Turf+Tavern+Oxford+menu" target="_blank" rel="noopener">Menu</a></div>
       </div>
     </div>
 
-    <div class="walk"><p><b>South to St Aldate's</b> (~10 min) for Christ Church — which opens to visitors at <b>2pm on Sundays</b>, so the timing lines up.</p></div>
+    <div class="walk"><p><b>South to St Aldate's</b> (~10 min) for Christ Church — which opens to visitors at <b>2pm on Sundays</b>, so the timing lines up.</p><a class="route" href="https://maps.apple.com/?saddr=Turf%20Tavern%2C%20Oxford&daddr=Christ%20Church%2C%20Oxford&dirflg=w" target="_blank" rel="noopener">Walk in Apple Maps</a></div>
 
     <div class="item">
       <div class="time">14:00</div>
@@ -589,11 +594,11 @@
       <div class="d">The grandest college: Tom Quad, the cathedral, and the Great Hall that inspired the Harry Potter dining hall. Timed entry — book online to save £2 and guarantee a slot.</div>
       <div class="info">
         <div class="info-row"><span class="ik">Ticket</span><span class="iv">~£18–20 pp online (summer rate) · Sun 14:00–17:00 · no bags over 40×30×20cm</span></div>
-        <div class="links"><a class="lb book" href="https://www.chch.ox.ac.uk/visit" target="_blank" rel="noopener">Book Christ Church</a><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Christ+Church+Oxford" target="_blank" rel="noopener">Map</a></div>
+        <div class="links"><a class="lb book" href="https://www.chch.ox.ac.uk/visit" target="_blank" rel="noopener">Book Christ Church</a><a class="lb map" href="https://maps.apple.com/?q=Christ+Church+Oxford" target="_blank" rel="noopener">Map</a></div>
       </div>
     </div>
 
-    <div class="walk"><p><b>Through Christ Church Meadow</b> (free) to Magdalen Bridge (~15 min) — a lovely riverside stretch on the way to the punts.</p></div>
+    <div class="walk"><p><b>Through Christ Church Meadow</b> (free) to Magdalen Bridge (~15 min) — a lovely riverside stretch on the way to the punts.</p><a class="route" href="https://maps.apple.com/?saddr=Christ%20Church%2C%20Oxford&daddr=Magdalen%20Bridge%20Boathouse%2C%20Oxford&dirflg=w" target="_blank" rel="noopener">Walk in Apple Maps</a></div>
 
     <div class="item">
       <div class="time">15:45</div>
@@ -602,7 +607,7 @@
       <div class="info">
         <div class="info-row"><span class="ik">Where</span><span class="iv">Magdalen Bridge Boathouse, High St, OX1 4AU</span></div>
         <div class="info-row"><span class="ik">Cost</span><span class="iv">Self-drive £35/hr (up to 5) · chauffeured £50 per 30 min · book the weekend slot online</span></div>
-        <div class="links"><a class="lb book" href="https://www.oxfordpunting.co.uk" target="_blank" rel="noopener">Book punt</a><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Magdalen+Bridge+Boathouse+Oxford" target="_blank" rel="noopener">Map</a></div>
+        <div class="links"><a class="lb book" href="https://www.oxfordpunting.co.uk" target="_blank" rel="noopener">Book punt</a><a class="lb map" href="https://maps.apple.com/?q=Magdalen+Bridge+Boathouse+Oxford" target="_blank" rel="noopener">Map</a></div>
       </div>
     </div>
 
@@ -614,12 +619,12 @@
         <div class="d">One of Oxford's oldest and tiniest pubs (1242), its walls covered in clipped neckties. A quick pint before the train back.</div>
         <div class="info">
           <div class="info-row"><span class="ik">Where</span><span class="iv">6 Alfred St, OX1 4EH · 5 min off the High Street</span></div>
-          <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=The+Bear+Inn+Oxford+Alfred+Street" target="_blank" rel="noopener">Map &amp; hours</a></div>
+          <div class="links"><a class="lb map" href="https://maps.apple.com/?q=The+Bear+Inn+Oxford+Alfred+Street" target="_blank" rel="noopener">Map &amp; hours</a></div>
         </div>
       </div>
     </div>
 
-    <div class="item n-bus"><div class="time">~18:15</div><div class="h">Train back to London</div><div class="d">Direct to Paddington, home to South Ken by ~20:00. A light dinner near the hotel stays within the £44 cap.</div><div class="meta"><span class="tag bus">GWR direct</span></div></div>
+    <div class="item n-bus"><div class="time">~18:15</div><div class="h">Train back to London</div><div class="d">Direct to Paddington, home to South Ken by ~20:00. A light dinner near the hotel stays within the £44 cap.</div><a class="route transit" href="https://maps.apple.com/?saddr=Oxford%20Railway%20Station&daddr=Paddington%20Station%2C%20London&dirflg=r" target="_blank" rel="noopener">Transit in Apple Maps</a><div class="meta"><span class="tag bus">GWR direct</span></div></div>
 
     <div class="note"><b>Book before you go</b><p>Two quick bookings make the day: advance train singles (much cheaper), and a Christ Church timed ticket for after 2pm. Everything else — market, tower, the Turf, the Bear — is walk-up. Prefer a palace? Bus S3 from Oxford reaches Blenheim Palace in ~40 min.</p></div>
   </div>
@@ -644,25 +649,25 @@
   <div class="track">
     <div class="item"><div class="time">09:00</div><div class="h">Breakfast &amp; check out</div><div class="d">Store your cases at the hotel for the day.</div></div>
 
-    <div class="walk"><p><b>Five minutes north:</b> into Kensington Gardens.</p></div>
+    <div class="walk"><p><b>Five minutes north:</b> into Kensington Gardens.</p><a class="route" href="https://maps.apple.com/?saddr=Radisson%20Blu%20Vanderbilt%2C%20Cromwell%20Road%2C%20London&daddr=Kensington%20Gardens%2C%20London&dirflg=w" target="_blank" rel="noopener">Walk in Apple Maps</a></div>
 
     <div class="item">
       <div class="time">10:00</div>
       <div class="h">Kensington Gardens &amp; Hyde Park</div>
       <div class="d">Albert Memorial, the Serpentine, the Italian Gardens — the quiet, green counterweight to a busy few days.</div>
-      <div class="info"><div class="info-row"><span class="ik">Cost</span><span class="iv">Free</span></div><div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Kensington+Gardens+London" target="_blank" rel="noopener">Map</a></div></div>
+      <div class="info"><div class="info-row"><span class="ik">Cost</span><span class="iv">Free</span></div><div class="links"><a class="lb map" href="https://maps.apple.com/?q=Kensington+Gardens+London" target="_blank" rel="noopener">Map</a></div></div>
     </div>
 
-    <div class="walk"><p><b>South-east through Knightsbridge</b> (~15 min, or bus 52) to Harrods.</p></div>
+    <div class="walk"><p><b>South-east through Knightsbridge</b> (~15 min, or bus 52) to Harrods.</p><a class="route" href="https://maps.apple.com/?saddr=Kensington%20Gardens%2C%20London&daddr=Harrods%2C%20London&dirflg=w" target="_blank" rel="noopener">Walk in Apple Maps</a></div>
 
     <div class="item">
       <div class="time">11:30</div>
       <div class="h">Knightsbridge &amp; Harrods</div>
       <div class="d">The food halls are the thing — a browse and a last souvenir. A short walk from the hotel.</div>
-      <div class="info"><div class="info-row"><span class="ik">Where</span><span class="iv">87–135 Brompton Rd, SW1X 7XL</span></div><div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=Harrods+Knightsbridge" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://www.harrods.com" target="_blank" rel="noopener">Site</a></div></div>
+      <div class="info"><div class="info-row"><span class="ik">Where</span><span class="iv">87–135 Brompton Rd, SW1X 7XL</span></div><div class="links"><a class="lb map" href="https://maps.apple.com/?q=Harrods+Knightsbridge" target="_blank" rel="noopener">Map</a><a class="lb site" href="https://www.harrods.com" target="_blank" rel="noopener">Site</a></div></div>
     </div>
 
-    <div class="walk"><p><b>Into the Belgravia mews</b> (~10 min): Wilton Row and Kinnerton Street sit two minutes apart — the drink and the lunch below are neighbours.</p></div>
+    <div class="walk"><p><b>Into the Belgravia mews</b> (~10 min): Wilton Row and Kinnerton Street sit two minutes apart — the drink and the lunch below are neighbours.</p><a class="route" href="https://maps.apple.com/?saddr=Harrods%2C%20London&daddr=The%20Grenadier%2C%20Wilton%20Row%2C%20London&dirflg=w" target="_blank" rel="noopener">Walk in Apple Maps</a></div>
 
     <div class="opt">
       <div class="flag">◇ Spare-time pint · optional</div>
@@ -670,7 +675,7 @@
         <div class="time">12:45</div>
         <div class="h">The Grenadier</div>
         <div class="d">A famously hidden pub down a cobbled Belgravia mews, all red-and-blue soldiery and a single sentry box outside — if there's time, a memorable last London pint.</div>
-        <div class="info"><div class="info-row"><span class="ik">Where</span><span class="iv">18 Wilton Row, SW1X 7NR</span></div><div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=The+Grenadier+Wilton+Row+London" target="_blank" rel="noopener">Map &amp; hours</a></div></div>
+        <div class="info"><div class="info-row"><span class="ik">Where</span><span class="iv">18 Wilton Row, SW1X 7NR</span></div><div class="links"><a class="lb map" href="https://maps.apple.com/?q=The+Grenadier+Wilton+Row+London" target="_blank" rel="noopener">Map &amp; hours</a></div></div>
       </div>
     </div>
 
@@ -681,7 +686,7 @@
       <div class="info">
         <div class="info-row"><span class="ik">Where</span><span class="iv">53 Kinnerton St, SW1X 8ED</span></div>
         <div class="info-row"><span class="ik">Budget</span><span class="iv">£–££</span></div>
-        <div class="links"><a class="lb map" href="https://www.google.com/maps/search/?api=1&query=The+Nags+Head+Kinnerton+Street+London" target="_blank" rel="noopener">Map &amp; menu</a></div>
+        <div class="links"><a class="lb map" href="https://maps.apple.com/?q=The+Nags+Head+Kinnerton+Street+London" target="_blank" rel="noopener">Map &amp; menu</a></div>
       </div>
     </div>
 
@@ -694,7 +699,7 @@
       <div class="info">
         <div class="info-row"><span class="ik">By rail</span><span class="iv">Gloucester Road → District to Tower Hill → DLR to London City (~55 min, ~£6)</span></div>
         <div class="info-row"><span class="ik">By cab</span><span class="iv">~45–60 min · ~£45–60</span></div>
-        <div class="links"><a class="lb map" href="https://www.google.com/maps/dir/Gloucester+Road+Station+London/London+City+Airport" target="_blank" rel="noopener">Route to LCY</a></div>
+        <div class="links"><a class="lb map" href="https://maps.apple.com/?saddr=Gloucester%20Road%20Station%2C%20London&daddr=London%20City%20Airport&dirflg=r" target="_blank" rel="noopener">Route to LCY</a></div>
       </div>
     </div>
   </div>
